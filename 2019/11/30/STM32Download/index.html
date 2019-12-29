@@ -79,7 +79,7 @@ function activateLightMode(){
 <li>选择固件，其余操作跟串口下载一致</li>
 <li>STM32F401的USB下载受天气影响可能存在一定的不稳定性，如反复出现如下ERROR，请采用串口下载，并断开USB连接。<div class="code-area-wrap"><div class="highlight-tools"><i class="fa fa-angle-down code-expand" aria-hidden="true"></i><div class="code_lang">Code</div><div class="copy-notice"></div><i class="fa fa-clipboard" aria-hidden="true"></i></div><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Error: failed to download Segment[0]</span><br><span class="line">Error: failed to download the File</span><br></pre></td></tr></table></figure></div>
 <blockquote>
-<p>上述<code>ERROR</code>造成原因：室温偏低，造成HSI偏差过大，<code>USB下载</code>使用的是<code>外部高速晶振</code>，而<code>ISP程序</code>（<code>ST的自举程序</code>）通过<code>HSI</code>测量外部晶振HSE频率然后再配置时钟，当<code>HSI</code>偏差过大，<code>HSE</code>测量频率不正确，从而使得USB时序不对,下载错误。具体详情可见网盘 <code>/通用文档/AN2606 STM32微控制器系统存储器自举模式.pdf</code></p>
+<p>上述<code>ERROR</code>造成原因：室温偏低，HSI产生偏差，<code>USB下载</code>使用的是<code>外部高速晶振</code>，而<code>ISP程序</code>（<code>ST的自举程序</code>）通过<code>HSI</code>测量外部晶振HSE频率然后再配置时钟，当<code>HSI</code>偏差过大，<code>HSE</code>测量频率不正确，从而使得USB时序不对，造成下载错误。具体详情可见网盘 <code>/通用文档/AN2606 STM32微控制器系统存储器自举模式.pdf</code></p>
 </blockquote>
 </li>
 </ol>
