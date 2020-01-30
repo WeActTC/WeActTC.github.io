@@ -348,8 +348,8 @@ canvas_ribbon:
 
 # 動態彩帶
 canvas_ribbon_piao:
-  enable: true
-  mobile: true # false 手機端不顯示 true 手機端顯示
+  enable: false
+  mobile: false # false 手機端不顯示 true 手機端顯示
 
 # canvas_nest
 # https://github.com/hustcc/canvas-nest.js
@@ -363,7 +363,7 @@ canvas_nest:
 
 # 打字效果
 activate_power_mode:
-  enable: true
+  enable: false
   colorful: true # 冒光特效
   shake: true # 抖動特效
 
@@ -379,7 +379,7 @@ click_heart:
 
 # 點擊出現文字，文字可自行修改
 ClickShowText:
-  enable: true
+  enable: false
   text:
     - WeAct 工作室
     - STM32F4x1核心板
@@ -440,11 +440,10 @@ subtitle:
   # source: 3  調用一句网（簡體） http://yijuzhan.com/
   # source: 4  調用今日詩詞（簡體） https://www.jinrishici.com/
   # subtitle 會先顯示 source , 再顯示 sub 的内容
-  source: 1
+  source: false
   # (如果有英文逗號' , '，請使用轉義字符 &#44;)
   sub:
-    - 今日事&#44;今日畢
-    - Never put off till tomorrow what you can do today
+    - 一个致力于设计独一无二电子模块的工作室
 
 ####    側邊欄    ####
 #-------------------------------------
@@ -510,7 +509,7 @@ darkmode:
 # autoChangeMode: 1  跟隨系統而變化，不支持的瀏覽器/系統將按照時間晚上6點到早上6點之間切換為 dark mode
 # autoChangeMode: 2  只按照時間晚上6點到早上6點之間切換為 dark mode
 # autoChangeMode: false 取消自動切換
-autoChangeMode: 1
+autoChangeMode: false
 
 ####    other     ####
 #------------------------------------------------

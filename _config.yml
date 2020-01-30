@@ -4,9 +4,9 @@
 
 # Site
 title: 'WeAct 工作室'
-subtitle: ''
+subtitle: 'WeAct Studio'
 description: '一个致力于设计独一无二电子模块的工作室'
-keywords:
+keywords: 
 author: WeAct
 language: zh-CN
 timezone: ''
@@ -29,8 +29,8 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
- - html/calua.html
- - html/clock.html
+ #- html/calua.html
+ - 'html/*.html'
  
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -92,7 +92,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: Butterfly
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

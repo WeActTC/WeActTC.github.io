@@ -10,6 +10,7 @@ top_img:
 cover:  /images/STM32/STM32F4x1仿真.png
 ---
 ![STM32F4X1](/images/STM32/STM32F4x1仿真.png "STM32F4X1CXU6")
+<!-- more -->
 # ISP下载
 按住BOOT0键和NRST键，然后松开NRST键，0.5秒后松开BOOT0键，即可进入串口下载或DFU下载，USB连接MCU的TYPE-C接口或者串口连接PA9、PA10，下载软件推荐STM32CubeProg。
 ## 串口下载
@@ -106,5 +107,5 @@ PS：以上方法是可以解决99%的下载烧录问题哦
 >网上老旧资料较多，推荐参考[ST官网](https://www.stmcu.com.cn "www.stmcu.com.cn")比较科学
 关于stm32的下载烧录问题，不定时更新
 
-![](/images/weact-logo1.png "一个致力于设计独一无二电子模块的工作室")
+![](/images/weact-logo1.png)
 <p align="right">一个致力于设计独一无二电子模块的工作室</p>

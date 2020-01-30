@@ -12,14 +12,11 @@ cover: /images/weact-logo1.png
 ---
 
 ## 我们的征途是星辰大海
+<!-- more -->
 ![scott-listfield](/images/scott-listfield.jpg)
 <center>@scott-listfield</center>
 
-<p>
-    <div style="width:100%; height:350px;border:none;text-align:center">
-		<iframe allowtransparency="yes" frameborder="0" width="350" height="350" src="/html/clock.html"/>
-	</div>
-</p>
+<iframe width="100%" height="350" scrolling="auto" frameborder="0" src="/html/clock.html"></iframe>
 
-![WeAct](/images/weact-logo1.png "一个致力于设计独一无二电子模块的工作室")
+![](/images/weact-logo1.png)
 <p align="right">一个致力于设计独一无二电子模块的工作室</p>

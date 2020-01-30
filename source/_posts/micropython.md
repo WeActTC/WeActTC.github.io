@@ -12,6 +12,7 @@ cover:  /images/micropython/micropython-logo-small.svg
 ---
 # Micropython
 MicroPython，是Python3编程语言的一个完整软件实现，用C语言编写，被优化于运行在微控制器之上。MicroPython是运行在微控制器硬件之上的完全的Python编译器和运行时系统。提供给用户一个交互式提示符（REPL）来立即执行所支持的命令。除了包括选定的核心Python库，MicroPython还包括了给予编程者访问低层硬件的模块。
+<!-- more -->
 具体请参考：[https://micropython.org/](https://micropython.org/)
 # 核心板外设定义及使用
 ## STM32F411CE 内部框图
@@ -268,3 +269,6 @@ led.toggle()
 led.on()
 led.off()
 {% endcodeblock %}
+
+![](/images/weact-logo1.png)
+<p align="right">一个致力于设计独一无二电子模块的工作室</p>
