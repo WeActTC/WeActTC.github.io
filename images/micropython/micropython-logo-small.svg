@@ -1,0 +1,15 @@
+<svg width="150" height="80" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="82" width="152" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text stroke="#000" transform="matrix(0.5950726198402262,0,0,0.5690051154234331,3.6083411957212537,4.80444754943808) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="40" id="svg_1" y="62.384286" x="11.256399" stroke-width="2" fill="#000000">MicroPython</text>
+  <text stroke="#000" transform="matrix(0.616397005570001,0,0,0.5543054069788458,34.588176681042434,26.968773832369553) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_2" y="59.537163" x="-27.631571" stroke-width="0" fill="#000000">WeAct Core Board</text>
+ </g>
+</svg>
