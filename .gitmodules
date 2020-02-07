@@ -1,9 +1,0 @@
-[submodule "themes/butterfly"]
-	path = themes/butterfly
-	url = git@weact.github.com:WeActTC/hexo-theme-butterfly.git
-[submodule "themes/next"]
-	path = themes/next
-	url = git@weact.github.com:theme-next/hexo-theme-next.git
-[submodule "themes/melody"]
-	path = themes/melody
-	url = git@weact.github.com:Molunerfinn/hexo-theme-melody.git
