@@ -111,6 +111,7 @@ STM32F4x1C 定时器引脚分布
 ### 使用
 #### Timer 定时功能
 {% codeblock lang:python %}
+import pyb
 from pyb import Timer
 TIM1 = Timer(1, freq=2) # 频率：2Hz
 TIM1.counter() # get counter value
@@ -121,6 +122,7 @@ TIM1.deinit() # 取消使用TIM1
 
 #### Timer PWM功能
 {% codeblock lang:python %}
+import pyb
 from pyb import Pin, Timer
 TIM2 = Timer(2, freq=1000) # 频率：1KHz
 # Timer.PWM_INVERTED：占空比： 0%->高电平 100%->低电平

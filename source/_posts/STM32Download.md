@@ -1,5 +1,5 @@
 ---
-title: 'STM32 下载烧录问题汇总'
+title: 'STM32 下载烧录教程以及问题汇总'
 date: 2019-11-30
 tags:
  - STM32
@@ -9,29 +9,46 @@ categories:
 top_img:
 cover:  /images/STM32/STM32F4x1仿真.png
 ---
-![STM32F4X1](/images/STM32/STM32F4x1仿真.png "STM32F4X1CXU6")
+![STM32F4X1](/images/STM32/STM32F4x1仿真.png )
 <!-- more -->
-# ISP下载
-按住BOOT0键和NRST键，然后松开NRST键，0.5秒后松开BOOT0键，即可进入串口下载或DFU下载，USB连接MCU的TYPE-C接口或者串口连接PA9、PA10，下载软件推荐STM32CubeProg。
-## 串口下载
- USB转串口 (ex.：CH340) `TX` - `PA10` ,`RX` - `PA9`，同时不要将MCU的`Type-C`连接到电脑，必须使用外部供电，不然会影响MCU下载。
+# ISP模式下载
+* 方法1：上电状态下，按住BOOT0键和复位键，然后松开复位键，0.5秒后松开BOOT0键
+* 方法2：掉电状态下，按住BOOT0键，上电后0.5S松开BOOT0
 
- ![STM32CubeProgrammer 串口下载1](/images/STM32/stm32cubeprog串口1.png "STM32CubeProgrammer 串口下载1")
-  ![STM32CubeProgrammer 串口下载2](/images/STM32/stm32cubeprog串口2.png "STM32CubeProgrammer 串口下载2")
-## USB下载
-1. STM32CubeProgrammer勾选USB模式
-  ![STM32CubeProgrammer USB下载](/images/STM32/stm32cubeprogUSB1.png "STM32CubeProgrammer USB下载")
-2. MCU进入ISP模式，使用USB连接电脑
-3. 选择固件，其余操作跟串口下载一致
-4. STM32F401的USB下载受天气影响可能存在一定的不稳定性，如反复出现如下ERROR，请采用串口下载，并断开USB连接。
+> USB数据线连接MCU的TYPE-C接口,串口连接PA9、PA10，下载软件推荐STM32CubeProg，`WeAct Studio Download Tool`
+
+## 串口下载
+ USB转串口 (ex.：CH340) `TX` - `PA10` ,`RX` - `PA9`，同时不要将MCU的`Type-C`连接到电脑，必须使用外部供电，不然会影响MCU下载
+### 使用 STM32CubeProgammer 进行串口下载
+![STM32CubeProgrammer 串口下载1](/images/STM32/stm32cubeprog串口1.png "STM32CubeProgrammer 串口下载1")
+![STM32CubeProgrammer 串口下载2](/images/STM32/stm32cubeprog串口2.png "STM32CubeProgrammer 串口下载2")
+### 使用 WeAct Studio Download Tool 进行串口下载
+[点我下载软件](http://weact-tc.cn/Download/WeAct_Studio_Download_Tool.zip)
+1. 解压`WeAct Studio Download Tool`
+2. 双击`WeAct Studio UART Download Tool.bat`
+3. 拖入固件，或者输入软件目录下的固件名，回车输入串口号,单片机进入ISP模式,再回车开始下载
+![](/images/STM32/WeActStudioUARTDownLoader1.png )
+4. 下载结果如图所示
+![](/images/STM32/WeActStudioUARTDownLoader2.png)
+
+## USB下载（DFU下载）
+1. STM32CubeProgrammer勾选USB模式，WeAct Studio Download Tool 双击`WeAct Studio USB Download Tool.bat`，然后根据提示操作
+![](/images/STM32/stm32cubeprogUSB1.png )
+2. MCU进入ISP模式，使用USB数据线连接电脑
+3. 选择固件，其余操作跟串口下载一致 
+
+* 设备管理器->通用串行总线设备出现`STM32 Bootloader`或者`DFU in FS Mode`设备
+> 如果出现的设备是`STM Device in DFU Mode`，需要右键卸载设备同时勾选删除此设备的驱动程序软件，之后再安装`WeAct Studio Download Tool/DFU_Driver/Driver/`目录下的驱动，选择`STM32Bootloader.inf`，右键点选安装
+
+* USB下载受天气影响可能存在一定的不稳定性，如反复出现如下ERROR或者出现`设备无法识别`，请采用串口下载，并断开USB连接。
 ```
 Error: failed to download Segment[0]
 Error: failed to download the File
 ```
-
 > 上述`ERROR`造成原因：室温偏低，HSI产生偏差，`USB下载`使用的是`外部高速晶振`，而`ISP程序`（`ST的自举程序`）通过`HSI`测量外部晶振HSE频率然后再配置时钟，当`HSI`偏差过大，`HSE`测量频率不正确，从而使得USB时序不对，造成下载错误。具体详情可见网盘 `/通用文档/AN2606 STM32微控制器系统存储器自举模式.pdf`
-
 > 解决方法：适当加热MCU至`25°C`以上（`用手捂热`）
+
+[WeAct Studio Download Tool 下载](http://weact-tc.cn/Download/WeAct_Studio_Download_Tool.zip)
 
 # ST-Link/J-link下载
 连接STM32的SW接口：
@@ -60,22 +77,20 @@ Error: failed to download the File
 
 ![JTAG接口 和 SW 接口](/images/STM32/JTAG.png "JTAG接口 和 SW 接口")
 
-# HID FLASH 下载
-> 部分板子测试时已经预烧录了HID Bootloader
+# WeAct_HID_FW_Bootloader 下载  
+[点我下载软件](http://weact-tc.cn/Download/WeAct_HID_FW_Bootloader.zip)
+>`仅支持STM32F4系列核心板`   
+> STM32F4核心板出厂时已经预烧录了HID Bootloader
 
-STM32F401CC、STM32F411CE 核心板均可使用，实现类似 51 单片机下载，但无需串口，只需一根数据线，
+STM32F401CC、STM32F401CE、STM32F411CE 核心板均可使用，实现类似 51 单片机下载，但无需串口，只需一根数据线，
 和修改Keil工程两个地方（详情见视频）即可实现。速度比串口下载更快且更方便
 
 ![](/images/STM32/HIDFlash2.png "WeAct HID FW Bootloader 软件界面")
 
-```
-百度网盘资料
-链接：https://pan.baidu.com/s/1vW9H-q9C5n2yVAEp38pw5A 
-提取码：gxnx 
-```
 ## APP 工程修改方法
 1. 修改工程ROM起始地址为 `0x8004000`
 ![](/images/STM32/stm32cubeideset.jpg "STM32CubeIDE 设置")
+![](/images/STM32/APPSetup1MDK.png "Keil MDK 设置")
 2. main()函数开头增加以下代码
 ```
 SCB->VTOR = FLASH_BASE | 0x4000; 
@@ -102,7 +117,6 @@ SCB->VTOR = FLASH_BASE | 0x4000;
 <source src="/images/STM32/HIDFlash软件下载操作视频.mp4">
 </video>
 
-PS：以上方法是可以解决99%的下载烧录问题哦
 >这里强烈推荐使用调试器烧录程序，方便快捷，亦可调试
 >网上老旧资料较多，推荐参考[ST官网](https://www.stmcu.com.cn "www.stmcu.com.cn")比较科学
 关于stm32的下载烧录问题，不定时更新

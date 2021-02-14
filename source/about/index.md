@@ -9,6 +9,6 @@ toc:
   max_depth: 3
 ---
 <!-- more -->
-# WeAct
+# WeAct Studio
 # 一个致力于设计独一无二电子模块的工作室
 ![](/images/weact-logo1.png)
